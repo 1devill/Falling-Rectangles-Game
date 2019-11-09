@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Falling Rectangles Game</title>
+    <style>
+      html {
+        font-size: 17px;
+        color: #444;
+        font-family: cursive;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+      }
+      body {
+        margin: 0;
+      }
+      html::before {
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-image: url("images/background3.jpg");
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -11;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        animation: animatedBackground 10s linear infinite alternate;
+        transform: scale(1);
+        object-fit: cover;
+      }
+      @keyframes animatedBackground {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 44%;
+        }
+      }
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+      }
+      canvas {        
+        border: 4px solid darkslateblue;
+        margin: 20px auto 0;
+        display: block;
+        margin-bottom: 91px;
+      }
+      button {
+        padding: 10px;
+        min-width: 150px;
+        background: blueviolet;
+        color: #fff;
+        border: 1px solid blueviolet;
+        font-size: 17px;
+        margin: 0 20px;
+        font-family: cursive;
+      }
+      button:hover {
+        background: transparent;
+        color: blueviolet;
+        cursor: pointer;
+      }
+      .wrapper > span {
+        color:rgb(255, 255, 255);
+      }
+      .wrapper > span:last-child {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <button id="start"> Start </button>
+      <button id="stop"> Stop </button>
+      <span> Score: <span id="score"> 0 </span> </span>
+      <span> Lives: <span id="lives"> 7 </span> </span>
+    </div>
+    <canvas width="640" height="480" id="canvas"></canvas>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
